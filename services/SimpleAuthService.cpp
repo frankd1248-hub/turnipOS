@@ -1,6 +1,5 @@
 #include "SimpleAuthService.hpp"
 #include "../Utils.hpp"
-#include <iostream>
 
 bool SimpleAuthService::login(const std::string& user, const std::string& pass) {
     if (user == "root") {
