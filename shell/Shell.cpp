@@ -7,6 +7,7 @@ Shell::Shell(CommandMap commands, IO& io, Context& ctx) :
 void Shell::run() {
     std::string command;
     std::vector<std::string> args;
+    m_ctx.kernel.state().activeApp = "tsh";
     while (m_ctx.kernel.state().running) {
         writePrompt();
 

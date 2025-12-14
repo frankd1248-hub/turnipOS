@@ -1,4 +1,5 @@
 #include "AuthService.hpp"
+#include "LocalFileService.hpp"
 
 class SimpleAuthService : public AuthService {
 
@@ -8,4 +9,7 @@ public:
 
 private:
     bool m_admin = false;
+    LocalFileService fileio = LocalFileService();
+
+    const std::string rootpasswd = "TURNIPROOT";
 };
