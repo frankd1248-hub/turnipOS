@@ -23,5 +23,6 @@ int main(int argc, char** argv) {
     commands["login"] = std::make_unique<LoginCommand>();
 
     Shell shell(std::move(commands), io, ctx);
+
     shell.run();
 }
