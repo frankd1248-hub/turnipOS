@@ -1,0 +1,3 @@
+#!/bin/bash
+
+g++ ./kernel/*.cpp ./shell/*.cpp ./services/*.cpp ./io/*.cpp ./*.cpp -o turnipOS -std=c++20
