@@ -30,6 +30,7 @@ int main(int argc, char** argv) {
     ConsoleIO io;
     Context ctx{kernel, services, io};
     Shell shell(std::move(commands), io, ctx);
+    ctx.shell = std::make_unique<Shell>(shell);
 
     shell.run();
 }

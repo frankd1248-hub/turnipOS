@@ -3,6 +3,7 @@
 #include "./kernel/Kernel.hpp"
 #include "./services/Services.hpp"
 #include "./io/IO.hpp"
+#include "./shell/Shell.hpp"
 
 struct Context {
     Kernel& kernel;
