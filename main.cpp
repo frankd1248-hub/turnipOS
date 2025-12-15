@@ -7,13 +7,17 @@
 #include "./shell/CommandRegistry.hpp"
 #include "./commands/Command.hpp"
 #include "./io/ConsoleIO.hpp"
+#include "./app/Package.hpp"
+#include "./app/PersistenceManager.hpp"
 
 int main(int argc, char** argv) {
     CommandMap commands;
+    PackageRegistry reg;
+    PersistenceManager man;
     commands["exit"] = std::make_unique<ExitCommand>();
     commands["login"] = std::make_unique<LoginCommand>();
-    commands["save"] = std::make_unique<SaveCommand>();
-    commands["load"] = std::make_unique<LoadCommand>();
+    commands["save"] = std::make_unique<SaveCommand>(man, reg);
+    commands["load"] = std::make_unique<LoadCommand>(man, reg);
     commands["pwd"] = std::make_unique<PWDCommand>();
     commands["chdir"] = std::make_unique<ChdirCommand>();
     commands["list"] = std::make_unique<ListCommand>();
@@ -30,7 +34,7 @@ int main(int argc, char** argv) {
     services.files = std::make_unique<LocalFileService>();
 
     ConsoleIO io;
-    Context ctx{kernel, services, io};
+    Context ctx{kernel, services, io, reg};
     Shell shell(std::move(commands), io, ctx);
 
     shell.run();

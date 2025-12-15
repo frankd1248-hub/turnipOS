@@ -1,5 +1,7 @@
 #include "Shell.hpp"
 #include "../Utils.hpp"
+#include "../kernel/Kernel.hpp"
+#include "../Context.hpp"
 
 Shell::Shell(CommandMap commands, IO& io, Context& ctx) : 
     m_commands(std::move(commands)), m_io(io), m_ctx(ctx) { }

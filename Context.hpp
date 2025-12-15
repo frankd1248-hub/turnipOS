@@ -1,12 +1,13 @@
 #pragma once
-#include <memory>
-#include "./kernel/Kernel.hpp"
-#include "./services/Services.hpp"
-#include "./io/IO.hpp"
-#include "./shell/Shell.hpp"
+
+class Kernel;
+class Services;
+class IO;
+class PackageRegistry;
 
 struct Context {
     Kernel& kernel;
     Services& services;
     IO& io;
+    PackageRegistry& apps;
 };

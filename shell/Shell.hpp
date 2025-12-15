@@ -2,6 +2,10 @@
 #include <filesystem>
 #include <cstdlib>
 #include "CommandRegistry.hpp"
+#include "../services/LogService.hpp"
+#include "../kernel/Kernel.hpp"
+#include "../io/IO.hpp"
+#include "../services/Services.hpp"
 
 class Shell {
 public:
