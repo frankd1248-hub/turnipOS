@@ -2,18 +2,22 @@
 #include "./services/Services.hpp"
 #include "./services/SimpleAuthService.hpp"
 #include "./services/FileLogService.hpp"
+#include "./services/LocalFileService.hpp"
 #include "./shell/Shell.hpp"
-#include "./commands/DefaultCommands.hpp"
+#include "./commands/Command.hpp"
 #include "./io/ConsoleIO.hpp"
 
 int main(int argc, char** argv) {
     SystemState state;
     state.deviceName = "turnipOS";
+    state.pwd = std::getenv("HOME");
+    std::filesystem::current_path(state.pwd);
     Kernel kernel(state);
 
     Services services;
     services.auth = std::make_unique<SimpleAuthService>();
     services.log = std::make_unique<FileLogService>();
+    services.files = std::make_unique<LocalFileService>();
 
     ConsoleIO io;
     Context ctx{kernel, services, io};
@@ -21,6 +25,8 @@ int main(int argc, char** argv) {
     CommandMap commands;
     commands["exit"] = std::make_unique<ExitCommand>();
     commands["login"] = std::make_unique<LoginCommand>();
+    commands["save"] = std::make_unique<SaveCommand>();
+    commands["load"] = std::make_unique<LoadCommand>();
 
     Shell shell(std::move(commands), io, ctx);
 

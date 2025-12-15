@@ -11,4 +11,8 @@ struct SystemState {
     User currentUser;
     std::string deviceName;
     std::string activeApp;
+    std::string pwd;
+
+    std::string serialize() const;
+    static SystemState deserialize(const std::string& text);
 };
