@@ -94,7 +94,7 @@ public:
         std::string data = ctx.services.files->read(args[0]);
         SystemState loaded = SystemState::deserialize(data);
 
-        ctx.kernel.setState(loaded);
+        ctx.kernel.state() = loaded;
         ctx.io.writeLine("System state loaded.");
     }
 };

@@ -1,12 +1,13 @@
 #include "SystemState.hpp"
 #include <sstream>
+#include <filesystem>
 
 std::string SystemState::serialize() const {
     std::ostringstream out;
     out << "running=" << running << "\n";
     out << "user.name=" << currentUser.name << "\n";
     out << "user.admin=" << currentUser.isAdmin << "\n";
-    out << "devicename=" << deviceName << "\n";
+    out << "deviceName=" << deviceName << "\n";
     out << "activeApp=" << activeApp << "\n";
     out << "pwd=" << pwd << "\n";
     out << "version=0.1\n";
@@ -39,6 +40,7 @@ SystemState SystemState::deserialize(const std::string& text) {
             state.activeApp = value;
         } else if (key == "pwd") {
             state.pwd = value;
+            std::filesystem::current_path(std::filesystem::path(value));
         }
     }
 

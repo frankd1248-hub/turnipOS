@@ -1,0 +1,7 @@
+running=1
+user.name=root
+user.admin=1
+devicename=turnipOS
+activeApp=tsh
+pwd=/home/frankdai/turnipOS
+version=0.1
