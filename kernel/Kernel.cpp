@@ -9,3 +9,7 @@ void Kernel::shutdown() {
 SystemState& Kernel::state() {
     return m_state;
 }
+
+void Kernel::setState(SystemState state) {
+    m_state = std::move(state);
+}

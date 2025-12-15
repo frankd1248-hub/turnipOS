@@ -8,6 +8,7 @@ public:
 
     void shutdown();
     SystemState& state();
+    void setState(SystemState);
 
 private:
     SystemState m_state;
