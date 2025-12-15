@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include "../Context.hpp"
+#include "../Utils.hpp"
 
 class Shell;
 
@@ -104,6 +105,45 @@ public:
     std::string help() const override { return "pwd"; }
 
     void execute(Context& ctx, const std::vector<std::string>& args) {
-        ctx.io.writeLine(ctx.shell.get()->getPWD());
+        ctx.io.writeLine(getPWD());
+    }
+};
+
+class ChdirCommand : public Command {
+public:
+    std::string name() const override { return "chdir"; }
+    std::string help() const override { return "chdir <path>"; }
+
+    void execute(Context& ctx, const std::vector<std::string>& args) {
+        if (args.empty()) {
+            ctx.io.writeLine("Usage: chdir <path>");
+            return;
+        }
+
+        std::string path = args.at(0);
+        if (path.at(0) == '~') {
+            path.replace(0, 1, std::getenv("HOME"));
+        }
+        std::filesystem::current_path(std::filesystem::path(path));
+    }
+};
+
+class ListCommand : public Command {
+public:
+    std::string name() const override { return "list"; }
+    std::string help() const override { return "list"; }
+
+    void execute(Context& ctx, const std::vector<std::string>& args) {
+        const std::filesystem::path target{"."};
+        try {
+            for (auto const& dirEntry : std::filesystem::directory_iterator(target)) {
+                std::string name = splitString(dirEntry.path(), '/').back();
+                if (name.at(0) != '.')
+                    ctx.io.write(splitString(dirEntry.path(), '/').back() + "    ");
+            }
+            ctx.io.writeLine("");
+        } catch (std::filesystem::filesystem_error const& exc) {
+            ctx.io.writeLine("Error occurred while looking for files.");
+        }
     }
 };

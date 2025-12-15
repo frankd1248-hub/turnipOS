@@ -1,4 +1,5 @@
 #pragma once
+#include <filesystem>
 #include <vector>
 #include <string>
 #include <sstream>
@@ -13,6 +14,38 @@ inline std::vector<std::string> splitString(const std::string& str, char delimit
     }
 
     return tokens;
+}
+
+inline std::string replaceHomeWithTilde(const std::string& path) {
+    const char* homeEnv = std::getenv("HOME");
+    if (!homeEnv)
+        return path;
+
+    std::string home(homeEnv);
+
+    // Remove trailing slash from HOME (except "/")
+    if (home.size() > 1 && home.back() == '/')
+        home.pop_back();
+
+    // Exact match
+    if (path == home)
+        return "~";
+
+    // Prefix match
+    if (path.size() > home.size() &&
+        path.compare(0, home.size(), home) == 0 &&
+        path[home.size()] == '/')
+    {
+        return "~" + path.substr(home.size());
+    }
+
+    return path;
+}
+
+inline std::string getPWD() {
+    std::string path = std::filesystem::canonical(std::filesystem::current_path()).string();
+    path = replaceHomeWithTilde(path);
+    return path;
 }
 
 template<typename... Ts>

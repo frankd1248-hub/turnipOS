@@ -49,41 +49,9 @@ void Shell::writePrompt() {
                ,"@"
                ,m_ctx.kernel.state().deviceName,
                " ",
-               getPWD(),
+               splitString(getPWD(), '/').back(),
                "]$ ")
     );
-}
-
-std::string Shell::getPWD() const {
-    std::string path = std::filesystem::canonical(std::filesystem::current_path()).string();
-    path = replaceHomeWithTilde(path);
-    return path;
-}
-
-std::string Shell::replaceHomeWithTilde(const std::string& path) const {
-    const char* homeEnv = std::getenv("HOME");
-    if (!homeEnv)
-        return path;
-
-    std::string home(homeEnv);
-
-    // Remove trailing slash from HOME (except "/")
-    if (home.size() > 1 && home.back() == '/')
-        home.pop_back();
-
-    // Exact match
-    if (path == home)
-        return "~";
-
-    // Prefix match
-    if (path.size() > home.size() &&
-        path.compare(0, home.size(), home) == 0 &&
-        path[home.size()] == '/')
-    {
-        return "~" + path.substr(home.size());
-    }
-
-    return path;
 }
 
 void Shell::log(Priority pri, const std::string& message) {

@@ -15,6 +15,8 @@ int main(int argc, char** argv) {
     commands["save"] = std::make_unique<SaveCommand>();
     commands["load"] = std::make_unique<LoadCommand>();
     commands["pwd"] = std::make_unique<PWDCommand>();
+    commands["chdir"] = std::make_unique<ChdirCommand>();
+    commands["list"] = std::make_unique<ListCommand>();
 
     SystemState state;
     state.deviceName = "turnipOS";
@@ -30,7 +32,6 @@ int main(int argc, char** argv) {
     ConsoleIO io;
     Context ctx{kernel, services, io};
     Shell shell(std::move(commands), io, ctx);
-    ctx.shell = std::make_unique<Shell>(shell);
 
     shell.run();
 }

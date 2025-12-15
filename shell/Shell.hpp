@@ -9,8 +9,6 @@ public:
     void run();
     void writePrompt();
     void log(Priority pri, const std::string& message);
-    std::string getPWD() const;
-    std::string replaceHomeWithTilde(const std::string&) const;
 
 private:
     CommandMap m_commands;

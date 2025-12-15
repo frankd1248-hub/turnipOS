@@ -9,5 +9,4 @@ struct Context {
     Kernel& kernel;
     Services& services;
     IO& io;
-    std::unique_ptr<Shell> shell;
 };
