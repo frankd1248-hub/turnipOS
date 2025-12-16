@@ -3,6 +3,7 @@
 #include "./services/SimpleAuthService.hpp"
 #include "./services/FileLogService.hpp"
 #include "./services/LocalFileService.hpp"
+#include "./services/SimpleWebService.hpp"
 #include "./shell/Shell.hpp"
 #include "./shell/CommandRegistry.hpp"
 #include "./commands/Command.hpp"
@@ -32,6 +33,7 @@ int main(int argc, char** argv) {
     services.auth = std::make_unique<SimpleAuthService>();
     services.log = std::make_unique<FileLogService>();
     services.files = std::make_unique<LocalFileService>();
+    services.web = std::make_unique<SimpleWebService>();
 
     ConsoleIO io;
     Context ctx{kernel, services, io, reg};
