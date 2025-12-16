@@ -21,6 +21,7 @@ void initCommandMap(CommandMap& commands, PackageRegistry& reg, PersistenceManag
     commands["list"] = std::make_unique<ListCommand>();
     commands["webget"] = std::make_unique<WebgetCommand>();
     commands["mkdir"] = std::make_unique<MkdirCommand>();
+    commands["touch"] = std::make_unique<TouchCommand>();
 }
 
 int main(int argc, char** argv) {
@@ -32,7 +33,11 @@ int main(int argc, char** argv) {
     SystemState state;
     state.deviceName = "turnipOS";
     state.pwd = std::string(std::getenv("HOME")).append("/turnipOS");
-    std::filesystem::current_path(state.pwd);
+    try {
+        std::filesystem::current_path(state.pwd);
+    } catch (std::filesystem::filesystem_error fe) { 
+        std::filesystem::current_path("/");
+    }
     Kernel kernel(state);
 
     Services services;

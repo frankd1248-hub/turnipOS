@@ -1,3 +1,4 @@
+#include <fstream>
 #include "Command.hpp"
 #include "../Context.hpp"
 #include "../kernel/Kernel.hpp"
@@ -143,9 +144,30 @@ void MkdirCommand::execute(Context& ctx, const std::vector<std::string>& args) {
     
     std::filesystem::path target = std::filesystem::path(args.at(0));
 
-    if (!std::filesystem::create_directory(target)) {
-        ctx.io.writeLine("Failed to create directory");
+    try {
+        if (!std::filesystem::create_directory(target)) {
+            ctx.io.writeLine("Failed to create directory");
+            return;
+        }
+    } catch (std::filesystem::filesystem_error fe) {
+        ctx.io.writeLine("Failed to create directory.");
+        ctx.io.writeLine(fe.what());
         return;
     }
     ctx.io.writeLine("Successfully created directory");
+}
+
+void TouchCommand::execute(Context& ctx, const std::vector<std::string>& args) {
+    if (args.empty()) {
+        ctx.io.writeLine("Usage: touch <file path>");
+        return;
+    }
+
+    std::ofstream out(args.at(0));
+    if (!out.is_open()) {
+        ctx.io.writeLine("Failed to open file");
+        return;
+    }
+    out.close();
+    ctx.io.writeLine("Successfully created file");
 }

@@ -130,3 +130,14 @@ public:
 
     void execute(Context& ctx, const std::vector<std::string>& args) override;
 };
+
+class TouchCommand : public Command {
+public:
+    TouchCommand() {}
+    ~TouchCommand() {}
+
+    std::string name() const override { return "touch"; }
+    std::string help() const override { return "touch <file path>"; }
+
+    void execute(Context& ctx, const std::vector<std::string>& args) override;
+};
