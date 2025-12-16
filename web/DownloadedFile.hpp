@@ -25,7 +25,6 @@ public:
 
     const std::string& url() const noexcept { return m_url; }
     const std::string& filename() const noexcept { return m_filename; }
-    const std::string& mimeType() const noexcept { return m_mimeType; }
 
     void writeToDisk(const std::filesystem::path& path) const {
 
@@ -51,6 +50,14 @@ public:
 
         if (!out)
             throw std::runtime_error("Failed while writing file to disk");
+    }
+
+    void setMimeType(std::string type) {
+        m_mimeType = std::move(type);
+    }
+
+    const std::string& mimeType() const noexcept {
+        return m_mimeType;
     }
 
 private:

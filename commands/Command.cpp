@@ -39,7 +39,7 @@ void SaveCommand::execute(Context& ctx, const std::vector<std::string>& args) {
                 m_pm.savePackage(pkg);
             }
             return;
-            }
+        }
         if (args.size() == 2) {
             Package* pkg = m_registry.get(args[1]);
             if (!pkg) {
@@ -115,5 +115,22 @@ void ListCommand::execute(Context& ctx, const std::vector<std::string>& args) {
         ctx.io.writeLine("");
     } catch (std::filesystem::filesystem_error const& exc) {
         ctx.io.writeLine("Error occurred while looking for files.");
+    }
+}
+
+void WebgetCommand::execute(Context& ctx, const std::vector<std::string>& args) {
+    if (args.size() != 2) {
+        ctx.io.writeLine("Usage: webget \"<url>\" <path>");
+        return;
+    }
+
+    std::string url = args.at(0).substr(1, args.at(0).size() - 2);
+    std::filesystem::path path{args.at(1)};
+
+    try {
+        ctx.services.web.get()->downloadFileToPath(url, path);
+        ctx.io.writeLine("Downloaded file");
+    } catch (std::runtime_error exc) {
+        ctx.io.writeLine(exc.what());
     }
 }

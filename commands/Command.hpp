@@ -108,3 +108,14 @@ public:
 
     void execute(Context& ctx, const std::vector<std::string>& args) override;
 };
+
+class WebgetCommand : public Command {
+public:
+    WebgetCommand() {}
+    ~WebgetCommand() {}
+
+    std::string name() const override { return "webget"; }
+    std::string help() const override { return "webget \"<url>\" <path>"; }
+
+    void execute(Context& ctx, const std::vector<std::string>& args) override;
+};

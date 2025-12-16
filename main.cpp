@@ -22,6 +22,7 @@ int main(int argc, char** argv) {
     commands["pwd"] = std::make_unique<PWDCommand>();
     commands["chdir"] = std::make_unique<ChdirCommand>();
     commands["list"] = std::make_unique<ListCommand>();
+    commands["webget"] = std::make_unique<WebgetCommand>();
 
     SystemState state;
     state.deviceName = "turnipOS";
