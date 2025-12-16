@@ -134,3 +134,18 @@ void WebgetCommand::execute(Context& ctx, const std::vector<std::string>& args) 
         ctx.io.writeLine(exc.what());
     }
 }
+
+void MkdirCommand::execute(Context& ctx, const std::vector<std::string>& args) {
+    if (args.empty()) {
+        ctx.io.writeLine("Usage: mkdir <directory path>");
+        return;
+    }
+    
+    std::filesystem::path target = std::filesystem::path(args.at(0));
+
+    if (!std::filesystem::create_directory(target)) {
+        ctx.io.writeLine("Failed to create directory");
+        return;
+    }
+    ctx.io.writeLine("Successfully created directory");
+}

@@ -11,10 +11,7 @@
 #include "./app/Package.hpp"
 #include "./app/PersistenceManager.hpp"
 
-int main(int argc, char** argv) {
-    CommandMap commands;
-    PackageRegistry reg;
-    PersistenceManager man;
+void initCommandMap(CommandMap& commands, PackageRegistry& reg, PersistenceManager& man) {
     commands["exit"] = std::make_unique<ExitCommand>();
     commands["login"] = std::make_unique<LoginCommand>();
     commands["save"] = std::make_unique<SaveCommand>(man, reg);
@@ -23,6 +20,14 @@ int main(int argc, char** argv) {
     commands["chdir"] = std::make_unique<ChdirCommand>();
     commands["list"] = std::make_unique<ListCommand>();
     commands["webget"] = std::make_unique<WebgetCommand>();
+    commands["mkdir"] = std::make_unique<MkdirCommand>();
+}
+
+int main(int argc, char** argv) {
+    CommandMap commands;
+    PackageRegistry reg;
+    PersistenceManager man;
+    initCommandMap(commands, reg, man);
 
     SystemState state;
     state.deviceName = "turnipOS";

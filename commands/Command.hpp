@@ -119,3 +119,14 @@ public:
 
     void execute(Context& ctx, const std::vector<std::string>& args) override;
 };
+
+class MkdirCommand : public Command {
+public:
+    MkdirCommand() {}
+    ~MkdirCommand() {}
+
+    std::string name() const override { return "mkdir"; }
+    std::string help() const override { return "mkdir <directory path>"; }
+
+    void execute(Context& ctx, const std::vector<std::string>& args) override;
+};
