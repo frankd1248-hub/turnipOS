@@ -14,6 +14,7 @@ public:
         std::ifstream in(path);
         std::ostringstream ss;
         ss << in.rdbuf();
+        in.close();
         return ss.str();
     }
 

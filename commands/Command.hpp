@@ -46,13 +46,13 @@ public:
     void execute(Context& ctx, const std::vector<std::string>& args) override;
 };
 
-class SaveCommand : public Command {
+class SavePackageCommand : public Command {
 public:
-    SaveCommand(PersistenceManager& pm, PackageRegistry& registry) : m_pm(pm), m_registry(registry) {}
-    ~SaveCommand() {}
+    SavePackageCommand(PersistenceManager& pm, PackageRegistry& registry) : m_pm(pm), m_registry(registry) {}
+    ~SavePackageCommand() {}
 
     std::string name() const override { return "save"; }
-    std::string help() const override { return "Usage: save <file>"; }
+    std::string help() const override { return "Usage: save [package]"; }
 
     void execute(Context& ctx, const std::vector<std::string>& args) override;
 
@@ -61,13 +61,13 @@ private:
     PackageRegistry& m_registry;
 };
 
-class LoadCommand : public Command {
+class LoadPackageCommand : public Command {
 public:
-    LoadCommand(PersistenceManager& pm, PackageRegistry& registry) : m_pm(pm), m_registry(registry) {}
-    ~LoadCommand() {}
+    LoadPackageCommand(PersistenceManager& pm, PackageRegistry& registry) : m_pm(pm), m_registry(registry) {}
+    ~LoadPackageCommand() {}
 
     std::string name() const override { return "load"; }
-    std::string help() const override { return "Usage: load <file>"; }
+    std::string help() const override { return "Usage: load [package]"; }
 
     void execute(Context& ctx, const std::vector<std::string>& args) override;
 
@@ -138,6 +138,28 @@ public:
 
     std::string name() const override { return "touch"; }
     std::string help() const override { return "touch <file path>"; }
+
+    void execute(Context& ctx, const std::vector<std::string>& args) override;
+};
+
+class SaveCommand : public Command {
+public:
+    SaveCommand() {}
+    ~SaveCommand() {}
+
+    std::string name() const override { return "save"; }
+    std::string help() const override { return "save <file path>"; }
+
+    void execute(Context& ctx, const std::vector<std::string>& args) override;
+};
+
+class LoadCommand : public Command {
+public:
+    LoadCommand() {}
+    ~LoadCommand() {}
+
+    std::string name() const override { return "load"; }
+    std::string help() const override { return "load <file path>"; }
 
     void execute(Context& ctx, const std::vector<std::string>& args) override;
 };

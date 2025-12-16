@@ -31,17 +31,18 @@ void LoginCommand::execute(Context& ctx, const std::vector<std::string>& args) {
     return;
 }
 
-void SaveCommand::execute(Context& ctx, const std::vector<std::string>& args) {
+void SavePackageCommand::execute(Context& ctx, const std::vector<std::string>& args) {
     try {
-        if (args.size() == 1) {
+        if (args.empty()) {
             // save all
             for (const std::pair<const std::string, std::unique_ptr<Package>>& pair : m_registry.all()) {
                 Package& pkg = *pair.second.get();
                 m_pm.savePackage(pkg);
             }
+            
             return;
         }
-        if (args.size() == 2) {
+        if (args.size() == 1) {
             Package* pkg = m_registry.get(args[1]);
             if (!pkg) {
                 ctx.io.writeLine("Error: Package not found");
@@ -59,9 +60,9 @@ void SaveCommand::execute(Context& ctx, const std::vector<std::string>& args) {
     }
 }
 
-void LoadCommand::execute(Context& ctx, const std::vector<std::string>& args) {
+void LoadPackageCommand::execute(Context& ctx, const std::vector<std::string>& args) {
     try {
-        if (args.size() == 1) {
+        if (args.empty()) {
             for (const std::pair<const std::string, std::unique_ptr<Package>>& pair : m_registry.all()) {
                 Package& pkg = *pair.second.get();
                 m_pm.loadPackage(pkg);
@@ -69,7 +70,7 @@ void LoadCommand::execute(Context& ctx, const std::vector<std::string>& args) {
             return;
         }
 
-        if (args.size() == 2) {
+        if (args.size() == 1) {
             Package* pkg = m_registry.get(args[1]);
             if (!pkg) {
                 ctx.io.writeLine("Error: Package not found");
@@ -170,4 +171,28 @@ void TouchCommand::execute(Context& ctx, const std::vector<std::string>& args) {
     }
     out.close();
     ctx.io.writeLine("Successfully created file");
+}
+
+void SaveCommand::execute(Context& ctx, const std::vector<std::string>& args) {
+    if (args.empty()) {
+        ctx.io.writeLine("Usage: save <file path>");
+        return;
+    }
+    std::ofstream out(args.at(0));
+    out << ctx.kernel.state().serialize();
+    out.close();
+    ctx.io.writeLine("Successfully saved.");
+}
+
+void LoadCommand::execute(Context& ctx, const std::vector<std::string>& args) {
+    if (args.empty()) {
+        ctx.io.writeLine("Usage: load <file path>");
+        return;
+    }
+    std::ifstream in(args.at(0));
+    std::stringstream buf;
+    buf << in.rdbuf();
+    in.close();
+    ctx.kernel.state() = ctx.kernel.state().deserialize(buf.str());
+    ctx.io.writeLine("Successfully loaded.");
 }

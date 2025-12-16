@@ -1,3 +1,5 @@
+#include <iostream>
+#include <fstream>
 #include "SimpleAuthService.hpp"
 #include "../Utils.hpp"
 
@@ -8,7 +10,9 @@ bool SimpleAuthService::login(const std::string& user, const std::string& pass) 
             return true;
         }
     } else {
-        if (fileio.read(concat("./passwds/passwd_", user)) == pass) {
+        if (!passwords.contains(user)) {
+            return false;
+        } if (passwords.at(user) == pass) {
             m_admin = false;
             return true;
         }
