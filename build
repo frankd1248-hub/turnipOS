@@ -1,3 +1,16 @@
 #!/bin/bash
 
-g++ ./kernel/*.cpp ./shell/*.cpp ./services/*.cpp ./io/*.cpp ./commands/*.cpp ./tpk/*.cpp ./app/*.cpp ./web/*.cpp ./*.cpp -o ./dist/turnipOS -std=c++20 -fconcepts-diagnostics-depth=3 -Wunused-result -lcurl
+g++ ./kernel/*.cpp \
+    ./shell/*.cpp \
+    ./services/*.cpp \
+    ./io/*.cpp \
+    ./commands/*.cpp \
+    ./tpk/*.cpp \
+    ./app/*.cpp \
+    ./web/*.cpp \
+    ./*.cpp \
+    -o ./dist/turnipOS \
+    -std=c++20 \
+    -fconcepts-diagnostics-depth=3 \
+    -Wunused-result \
+    -lcurl
