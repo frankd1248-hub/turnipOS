@@ -11,7 +11,7 @@ class Deserializer;
 class EditorApp : public App, public SerializableApp {
 public:
 
-    EditorApp() {}
+    EditorApp() : m_cmd() {}
     ~EditorApp() {}
 
     std::string name() const override { return "editor"; }
@@ -20,6 +20,9 @@ public:
     void loadState(const std::string& block) override;
 
     void start(Context& ctx) override;
+
+private:
+    EditorCommand m_cmd;
 };
 
 class EditorCommand : public Command {
@@ -32,6 +35,10 @@ public:
     std::string help() const override { return "editor <file>"; }
 
     void execute(Context& ctx, const std::vector<std::string>& args) override;
+
+private:
+
+    void exec(std::string command);
 };
 
 class EditorPackage : public Package {

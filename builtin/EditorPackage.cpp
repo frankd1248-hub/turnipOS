@@ -64,19 +64,36 @@ void EditorCommand::execute(Context& ctx, const std::vector<std::string>& args) 
         file = EditorFile(ss.str());
     }
 
-
+    char input;
+    int mode = 0;
+    // mode 0 = commands
+    // mode 1 = insert
+    bool isTypingCommand = false;
+    std::string command = "";
+    
+    while (true) {
+        input = getchar();
+        if (!isTypingCommand && input == ':') {
+            isTypingCommand = true;
+        } else if (isTypingCommand && input != '\n') {
+            command += input;
+        } else if (isTypingCommand && input == '\n') {
+            exec(command);
+        }
+    }
 }
 
 std::string EditorApp::saveState() const {
-
+    return "";
 }
 
 void EditorApp::loadState(const std::string& block) {
-
+    return;
 }
 
 void EditorApp::start(Context& ctx) {
-
+    ctx.io.write("Enter path for file to edit: ");
+    m_cmd.execute(ctx, {ctx.io.readLine()});
 }
 
 int EditorFile::countLines() {

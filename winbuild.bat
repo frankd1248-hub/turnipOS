@@ -1,1 +1,2 @@
-g++
+
+g++ .\kernel\*.cpp  .\shell\*.cpp .\services\*.cpp .\io\*.cpp .\commands\*.cpp  .\tpk\*.cpp  .\app\*.cpp  .\builtin\*.cpp  .\web\*.cpp  .\*.cpp  -o .\dist\turnipOS -std=c++20  -fconcepts-diagnostics-depth=3 -Wunused-result -lcurl
