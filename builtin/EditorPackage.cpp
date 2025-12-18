@@ -78,3 +78,35 @@ void EditorApp::loadState(const std::string& block) {
 void EditorApp::start(Context& ctx) {
 
 }
+
+int EditorFile::countLines() {
+    std::string _cont(contents);
+    int lines = 0;
+    while (_cont.find_first_of('\n') != std::string::npos) {
+        lines++;
+        _cont = _cont.substr(_cont.find_first_of('\n')+1);
+    }
+    return lines;
+}
+
+int EditorFile::lineLength(int line) {
+    std::string _cont(contents);
+    for (int i = 1; i < line; i++) {
+        int pos = _cont.find_first_of('\n');
+        _cont = _cont.substr(pos+1);
+    }
+    int pos = _cont.find_first_of('\n');
+    if (pos != std::string::npos) {
+        _cont = _cont.substr(0, pos);
+    }
+
+    return _cont.size();
+}
+
+std::string EditorFile::multiply(std::string str, int amount) {
+    std::string result("");
+    for (int i = 0; i < amount; i++) {
+        result.append(str);
+    }
+    return result;
+}
