@@ -7,6 +7,7 @@ g++ ./kernel/*.cpp \
     ./commands/*.cpp \
     ./tpk/*.cpp \
     ./app/*.cpp \
+    ./builtin/*.cpp \
     ./web/*.cpp \
     ./*.cpp \
     -o ./dist/turnipOS \
