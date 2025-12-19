@@ -8,65 +8,6 @@ class Command;
 class Serializer;
 class Deserializer;
 
-class EditorApp : public App, public SerializableApp {
-public:
-
-    EditorApp() : m_cmd() {}
-    ~EditorApp() {}
-
-    std::string name() const override { return "editor"; }
-
-    std::string saveState() const override;
-    void loadState(const std::string& block) override;
-
-    void start(Context& ctx) override;
-
-private:
-    EditorCommand m_cmd;
-};
-
-class EditorCommand : public Command {
-public:
-
-    EditorCommand() {}
-    ~EditorCommand() {}
-
-    std::string name() const override { return "editor"; }
-    std::string help() const override { return "editor <file>"; }
-
-    void execute(Context& ctx, const std::vector<std::string>& args) override;
-
-private:
-
-    void exec(std::string command);
-};
-
-class EditorPackage : public Package {
-public:
-
-    EditorPackage();
-    ~EditorPackage() {}
-
-    std::string name() const override { return "editor"; }
-    uint32_t stateVersion() const override { return 1; }
-
-    void install(Context& ctx) override;
-    void uninstall(Context& ctx) override;
-
-    std::vector<App*> apps() override;
-    std::vector<Command*> commands() override;
-
-    void save(Serializer& out) const override;
-    void load(Deserializer& in) override;
-
-private:
-    EditorApp m_app;
-    EditorCommand m_command;
-
-    std::vector<App*> m_apps{&m_app};
-    std::vector<Command*> m_commands{&m_command};
-};
-
 class EditorFile {
 public:
 
@@ -86,6 +27,8 @@ public:
         } 
     }
 
+    std::string getPos() const;
+
 private:
 
     int x, y;
@@ -95,4 +38,72 @@ private:
     int lineLength(int line);
 
     std::string multiply(std::string str, int amount);
+};
+
+class EditorCommand : public Command {
+public:
+
+    EditorCommand() {}
+    ~EditorCommand() {}
+
+    std::string name() const override { return "editor"; }
+    std::string help() const override { return "editor <file>"; }
+
+    void execute(Context& ctx, const std::vector<std::string>& args) override;
+
+private:
+    bool m_running;
+    EditorFile m_file;
+    std::filesystem::path m_path;
+
+    void exec(Context& ctx, std::string command);
+
+    void writeChanges();
+
+    void display(Context& ctx, int mode);
+};
+
+class EditorApp : public App, public SerializableApp {
+public:
+
+    EditorApp() : m_cmd() {}
+    ~EditorApp() {}
+
+    std::string name() const override { return "editor"; }
+
+    std::string saveState() const override;
+    void loadState(const std::string& block) override;
+
+    void start(Context& ctx) override;
+
+private:
+    EditorCommand m_cmd;
+};
+
+class EditorPackage : public Package {
+public:
+
+    EditorPackage() {
+        m_commands.push_back(std::make_unique<EditorCommand>());
+        m_apps.push_back(std::make_unique<EditorApp>());
+    }
+
+    ~EditorPackage() {}
+
+    std::string name() const override { return "editor"; }
+    uint32_t stateVersion() const override { return 1; }
+
+    void install(Context& ctx, Shell& sh) override;
+    void uninstall(Context& ctx, Shell& sh) override;
+
+    std::vector<std::unique_ptr<App>> apps() override;
+    std::vector<std::unique_ptr<Command>> commands() override;
+
+    void save(Serializer& out) const override;
+    void load(Deserializer& in) override;
+
+private:
+
+    std::vector<std::unique_ptr<App>> m_apps{};
+    std::vector<std::unique_ptr<Command>> m_commands{};
 };

@@ -1,7 +1,7 @@
 #pragma once
 #include <filesystem>
 #include <cstdlib>
-#include "CommandRegistry.hpp"
+#include "../commands/Command.hpp"
 #include "../services/LogService.hpp"
 #include "../kernel/Kernel.hpp"
 #include "../io/IO.hpp"
@@ -13,6 +13,8 @@ public:
     void run();
     void writePrompt();
     void log(Priority pri, const std::string& message);
+
+    CommandMap& commands() { return m_commands; }
 
 private:
     CommandMap m_commands;

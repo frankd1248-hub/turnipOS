@@ -5,11 +5,12 @@
 #include "./services/LocalFileService.hpp"
 #include "./services/SimpleWebService.hpp"
 #include "./shell/Shell.hpp"
-#include "./shell/CommandRegistry.hpp"
 #include "./commands/Command.hpp"
 #include "./io/ConsoleIO.hpp"
 #include "./app/Package.hpp"
 #include "./app/PersistenceManager.hpp"
+#include "./builtin/EditorPackage.hpp"
+#include <functional>
 
 void initCommandMap(CommandMap& commands, PackageRegistry& reg, PersistenceManager& man) {
     commands["exit"] = std::make_unique<ExitCommand>();
@@ -51,6 +52,13 @@ int main(int argc, char** argv) {
     ConsoleIO io;
     Context ctx{kernel, services, io, reg};
     Shell shell(std::move(commands), io, ctx);
+
+    std::function<void(Command*)> instCommands = [&shell] (Command* cmd) {
+        shell.commands()[cmd->name()] = std::unique_ptr<Command>(cmd);
+    };
+
+    ctx.io.writeLine("Hello!");
+    reg.install(std::make_unique<EditorPackage>(), ctx, shell);
 
     shell.run();
 }

@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <memory>
+#include <unordered_map>
 #include "../Utils.hpp"
 #include "../app/App.hpp"
 
@@ -15,6 +17,8 @@ public:
     virtual std::string help() const = 0;
     virtual void execute(Context&, const std::vector<std::string>& args) = 0;
 };
+
+using CommandMap = std::unordered_map<std::string, std::unique_ptr<Command>>;
 
 class ExitCommand : public Command {
 public:

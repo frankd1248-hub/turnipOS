@@ -62,3 +62,32 @@ inline bool contains(std::vector<T> vect, T val) {
     }
     return false;
 }
+
+
+#ifdef WIN32
+
+#include <windows.h>
+
+inline std::vector<int> getTerminalSize() {
+    CONSOLE_SCREEN_BUFFER_INFO csbi;
+    int columns, rows;
+
+    GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
+    columns = csbi.srWindow.Right - csbi.srWindow.Left + 1;
+    rows = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
+
+    return {rows, columns};
+}
+
+#else
+
+#include <sys/ioctl.h>
+#include <unistd.h>
+
+inline std::vector<int> getTerminalSize() {
+    struct winsize size;
+    ioctl(STDOUT_FILENO, TIOCGWINSZ, &size);
+    return {size.ws_row, size.ws_col};
+}
+
+#endif
