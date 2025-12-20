@@ -2,7 +2,13 @@
 #include <filesystem>
 #include <vector>
 #include <string>
+#include <thread>
+#include <chrono>
 #include <sstream>
+
+inline void sleepMillis(int millis) {
+    std::this_thread::sleep_for(std::chrono::milliseconds(millis));
+}
 
 inline std::vector<std::string> splitString(const std::string& str, char delimiter) {
     std::vector<std::string> tokens;

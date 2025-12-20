@@ -57,7 +57,6 @@ int main(int argc, char** argv) {
         shell.commands()[cmd->name()] = std::unique_ptr<Command>(cmd);
     };
 
-    ctx.io.writeLine("Hello!");
     reg.install(std::make_unique<EditorPackage>(), ctx, shell);
 
     shell.run();

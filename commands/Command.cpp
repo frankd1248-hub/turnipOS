@@ -111,10 +111,12 @@ void ListCommand::execute(Context& ctx, const std::vector<std::string>& args) {
     try {
         for (auto const& dirEntry : std::filesystem::directory_iterator(target)) {
             std::string name = splitString(dirEntry.path(), '/').back();
-            if (name.at(0) != '.')
-                ctx.io.write(splitString(dirEntry.path(), '/').back() + "    ");
+            if (std::filesystem::is_directory(dirEntry.path()))
+                ctx.io.write("\e[1;36m" + name + "    ");
+            else
+                ctx.io.write("\033[0m" + name + "    ");
         }
-        ctx.io.writeLine("");
+        ctx.io.writeLine("\033[0m");
     } catch (std::filesystem::filesystem_error const& exc) {
         ctx.io.writeLine("Error occurred while looking for files.");
     }

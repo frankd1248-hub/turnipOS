@@ -27,14 +27,21 @@ public:
         } 
     }
 
+    std::string getLine(int line) const;
+
     std::string getPos() const;
+
+    std::vector<int> getCoords() const { return {x, y}; }
+
+    void insertCharacter(char c);
+    
+    int countLines();
 
 private:
 
     int x, y;
     std::string contents;
 
-    int countLines();
     int lineLength(int line);
 
     std::string multiply(std::string str, int amount);
@@ -60,7 +67,7 @@ private:
 
     void writeChanges();
 
-    void display(Context& ctx, int mode);
+    void display(Context& ctx, int mode, std::string cmd);
 };
 
 class EditorApp : public App, public SerializableApp {
