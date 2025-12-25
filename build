@@ -13,7 +13,7 @@ g++ ./kernel/*.cpp \
     -o ./dist/turnipOS \
     -std=c++20 \
     -fconcepts-diagnostics-depth=3 \
-    -Wunused-result -v \
-    -lcurl -lncurses &> ./dist/buildinfo.txt
-echo &>> ./dist/buildinfo.txt
-upx -9 ./dist/turnipOS &>> ./dist/buildinfo.txt
+    -Wunused-result \
+    -lcurl -lncurses
+echo 
+upx -9 ./dist/turnipOS 

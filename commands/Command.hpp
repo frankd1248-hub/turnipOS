@@ -3,6 +3,7 @@
 #include <vector>
 #include <memory>
 #include <unordered_map>
+#include <fstream>
 #include "../Utils.hpp"
 #include "../app/App.hpp"
 
