@@ -167,3 +167,17 @@ public:
 
     void execute(Context& ctx, const std::vector<std::string>& args) override;
 };
+
+class CatCommand : public Command {
+public:
+    CatCommand() {}
+    ~CatCommand() {}
+
+    std::string name() const override { return "cat"; }
+    std::string help() const override { return "cat <file>"; }
+
+    void execute(Context& ctx, const std::vector<std::string>& args) override;
+
+private:
+    std::ifstream in;
+};

@@ -7,7 +7,7 @@ Thread model: posix
 Supported LTO compression algorithms: zlib zstd
 gcc version 15.2.1 20251112 (GCC) 
 COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE ./kernel/Kernel.cpp -quiet -dumpdir ./dist/turnipOS- -dumpbase Kernel.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -Wunused-result -std=c++20 -version -fconcepts-diagnostics-depth=3 -o /tmp/ccjC0Bsz.s
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE ./kernel/Kernel.cpp -quiet -dumpdir ./dist/turnipOS- -dumpbase Kernel.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -Wunused-result -std=c++20 -version -fconcepts-diagnostics-depth=3 -o /tmp/ccd6gC57.s
 GNU C++20 (GCC) version 15.2.1 20251112 (x86_64-pc-linux-gnu)
 	compiled by GNU C version 15.2.1 20251112, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.27-GMP
 
@@ -25,10 +25,10 @@ ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../..
 End of search list.
 Compiler executable checksum: 4f062beaae229dc32234f13ba259a70e
 COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
- as -v --64 -o /tmp/ccKbvjSY.o /tmp/ccjC0Bsz.s
+ as -v --64 -o /tmp/ccj5ZDqW.o /tmp/ccd6gC57.s
 GNU assembler version 2.45.1 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.45.1
 COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE ./kernel/SystemState.cpp -quiet -dumpdir ./dist/turnipOS- -dumpbase SystemState.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -Wunused-result -std=c++20 -version -fconcepts-diagnostics-depth=3 -o /tmp/ccjC0Bsz.s
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE ./kernel/SystemState.cpp -quiet -dumpdir ./dist/turnipOS- -dumpbase SystemState.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -Wunused-result -std=c++20 -version -fconcepts-diagnostics-depth=3 -o /tmp/ccd6gC57.s
 GNU C++20 (GCC) version 15.2.1 20251112 (x86_64-pc-linux-gnu)
 	compiled by GNU C version 15.2.1 20251112, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.27-GMP
 
@@ -46,10 +46,40 @@ ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../..
 End of search list.
 Compiler executable checksum: 4f062beaae229dc32234f13ba259a70e
 COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
- as -v --64 -o /tmp/cc2pLJgb.o /tmp/ccjC0Bsz.s
+ as -v --64 -o /tmp/ccA4kozJ.o /tmp/ccd6gC57.s
 GNU assembler version 2.45.1 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.45.1
 COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE ./shell/Shell.cpp -quiet -dumpdir ./dist/turnipOS- -dumpbase Shell.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -Wunused-result -std=c++20 -version -fconcepts-diagnostics-depth=3 -o /tmp/ccjC0Bsz.s
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE ./shell/Shell.cpp -quiet -dumpdir ./dist/turnipOS- -dumpbase Shell.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -Wunused-result -std=c++20 -version -fconcepts-diagnostics-depth=3 -o /tmp/ccd6gC57.s
+GNU C++20 (GCC) version 15.2.1 20251112 (x86_64-pc-linux-gnu)
+	compiled by GNU C version 15.2.1 20251112, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.27-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../x86_64-pc-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/x86_64-pc-linux-gnu
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/backward
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include
+ /usr/local/include
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed
+ /usr/include
+End of search list.
+Compiler executable checksum: 4f062beaae229dc32234f13ba259a70e
+In file included from ./shell/Shell.hpp:4,
+                 from ./shell/Shell.cpp:1:
+./shell/../commands/Command.hpp:182:19: error: field ‘in’ has incomplete type ‘std::ifstream’ {aka ‘std::basic_ifstream<char>’}
+  182 |     std::ifstream in;
+      |                   ^~
+In file included from /usr/include/c++/15.2.1/system_error:44,
+                 from /usr/include/c++/15.2.1/bits/fs_fwd.h:35,
+                 from /usr/include/c++/15.2.1/filesystem:53,
+                 from ./shell/Shell.hpp:2:
+/usr/include/c++/15.2.1/iosfwd:120:11: note: declaration of ‘std::ifstream’ {aka ‘class std::basic_ifstream<char>’}
+  120 |     class basic_ifstream;
+      |           ^~~~~~~~~~~~~~
+COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE ./services/FileLogService.cpp -quiet -dumpdir ./dist/turnipOS- -dumpbase FileLogService.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -Wunused-result -std=c++20 -version -fconcepts-diagnostics-depth=3 -o /tmp/ccd6gC57.s
 GNU C++20 (GCC) version 15.2.1 20251112 (x86_64-pc-linux-gnu)
 	compiled by GNU C version 15.2.1 20251112, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.27-GMP
 
@@ -67,10 +97,10 @@ ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../..
 End of search list.
 Compiler executable checksum: 4f062beaae229dc32234f13ba259a70e
 COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
- as -v --64 -o /tmp/ccCacEkd.o /tmp/ccjC0Bsz.s
+ as -v --64 -o /tmp/cctg13rr.o /tmp/ccd6gC57.s
 GNU assembler version 2.45.1 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.45.1
 COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE ./services/FileLogService.cpp -quiet -dumpdir ./dist/turnipOS- -dumpbase FileLogService.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -Wunused-result -std=c++20 -version -fconcepts-diagnostics-depth=3 -o /tmp/ccjC0Bsz.s
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE ./services/SimpleAuthService.cpp -quiet -dumpdir ./dist/turnipOS- -dumpbase SimpleAuthService.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -Wunused-result -std=c++20 -version -fconcepts-diagnostics-depth=3 -o /tmp/ccd6gC57.s
 GNU C++20 (GCC) version 15.2.1 20251112 (x86_64-pc-linux-gnu)
 	compiled by GNU C version 15.2.1 20251112, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.27-GMP
 
@@ -88,10 +118,10 @@ ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../..
 End of search list.
 Compiler executable checksum: 4f062beaae229dc32234f13ba259a70e
 COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
- as -v --64 -o /tmp/ccU1vCIc.o /tmp/ccjC0Bsz.s
+ as -v --64 -o /tmp/ccrayKg1.o /tmp/ccd6gC57.s
 GNU assembler version 2.45.1 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.45.1
 COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE ./services/SimpleAuthService.cpp -quiet -dumpdir ./dist/turnipOS- -dumpbase SimpleAuthService.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -Wunused-result -std=c++20 -version -fconcepts-diagnostics-depth=3 -o /tmp/ccjC0Bsz.s
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE ./io/ConsoleIO.cpp -quiet -dumpdir ./dist/turnipOS- -dumpbase ConsoleIO.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -Wunused-result -std=c++20 -version -fconcepts-diagnostics-depth=3 -o /tmp/ccd6gC57.s
 GNU C++20 (GCC) version 15.2.1 20251112 (x86_64-pc-linux-gnu)
 	compiled by GNU C version 15.2.1 20251112, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.27-GMP
 
@@ -109,10 +139,10 @@ ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../..
 End of search list.
 Compiler executable checksum: 4f062beaae229dc32234f13ba259a70e
 COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
- as -v --64 -o /tmp/ccpTn10q.o /tmp/ccjC0Bsz.s
+ as -v --64 -o /tmp/ccO72wD4.o /tmp/ccd6gC57.s
 GNU assembler version 2.45.1 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.45.1
 COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE ./io/ConsoleIO.cpp -quiet -dumpdir ./dist/turnipOS- -dumpbase ConsoleIO.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -Wunused-result -std=c++20 -version -fconcepts-diagnostics-depth=3 -o /tmp/ccjC0Bsz.s
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE ./commands/Command.cpp -quiet -dumpdir ./dist/turnipOS- -dumpbase Command.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -Wunused-result -std=c++20 -version -fconcepts-diagnostics-depth=3 -o /tmp/ccd6gC57.s
 GNU C++20 (GCC) version 15.2.1 20251112 (x86_64-pc-linux-gnu)
 	compiled by GNU C version 15.2.1 20251112, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.27-GMP
 
@@ -130,10 +160,10 @@ ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../..
 End of search list.
 Compiler executable checksum: 4f062beaae229dc32234f13ba259a70e
 COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
- as -v --64 -o /tmp/ccQgWMID.o /tmp/ccjC0Bsz.s
+ as -v --64 -o /tmp/ccWSrQCG.o /tmp/ccd6gC57.s
 GNU assembler version 2.45.1 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.45.1
 COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE ./commands/Command.cpp -quiet -dumpdir ./dist/turnipOS- -dumpbase Command.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -Wunused-result -std=c++20 -version -fconcepts-diagnostics-depth=3 -o /tmp/ccjC0Bsz.s
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE ./tpk/TPKPacker.cpp -quiet -dumpdir ./dist/turnipOS- -dumpbase TPKPacker.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -Wunused-result -std=c++20 -version -fconcepts-diagnostics-depth=3 -o /tmp/ccd6gC57.s
 GNU C++20 (GCC) version 15.2.1 20251112 (x86_64-pc-linux-gnu)
 	compiled by GNU C version 15.2.1 20251112, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.27-GMP
 
@@ -151,10 +181,69 @@ ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../..
 End of search list.
 Compiler executable checksum: 4f062beaae229dc32234f13ba259a70e
 COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
- as -v --64 -o /tmp/ccCbS7qp.o /tmp/ccjC0Bsz.s
+ as -v --64 -o /tmp/ccBcQNcY.o /tmp/ccd6gC57.s
 GNU assembler version 2.45.1 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.45.1
 COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE ./tpk/TPKPacker.cpp -quiet -dumpdir ./dist/turnipOS- -dumpbase TPKPacker.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -Wunused-result -std=c++20 -version -fconcepts-diagnostics-depth=3 -o /tmp/ccjC0Bsz.s
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE ./app/Package.cpp -quiet -dumpdir ./dist/turnipOS- -dumpbase Package.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -Wunused-result -std=c++20 -version -fconcepts-diagnostics-depth=3 -o /tmp/ccd6gC57.s
+GNU C++20 (GCC) version 15.2.1 20251112 (x86_64-pc-linux-gnu)
+	compiled by GNU C version 15.2.1 20251112, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.27-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../x86_64-pc-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/x86_64-pc-linux-gnu
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/backward
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include
+ /usr/local/include
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed
+ /usr/include
+End of search list.
+Compiler executable checksum: 4f062beaae229dc32234f13ba259a70e
+In file included from ./app/Package.hpp:8,
+                 from ./app/Package.cpp:1:
+./app/../commands/Command.hpp:182:19: error: field ‘in’ has incomplete type ‘std::ifstream’ {aka ‘std::basic_ifstream<char>’}
+  182 |     std::ifstream in;
+      |                   ^~
+In file included from /usr/include/c++/15.2.1/bits/localefwd.h:43,
+                 from /usr/include/c++/15.2.1/string:47,
+                 from ./app/Package.hpp:2:
+/usr/include/c++/15.2.1/iosfwd:120:11: note: declaration of ‘std::ifstream’ {aka ‘class std::basic_ifstream<char>’}
+  120 |     class basic_ifstream;
+      |           ^~~~~~~~~~~~~~
+COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE ./app/PersistenceManager.cpp -quiet -dumpdir ./dist/turnipOS- -dumpbase PersistenceManager.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -Wunused-result -std=c++20 -version -fconcepts-diagnostics-depth=3 -o /tmp/ccd6gC57.s
+GNU C++20 (GCC) version 15.2.1 20251112 (x86_64-pc-linux-gnu)
+	compiled by GNU C version 15.2.1 20251112, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.27-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../x86_64-pc-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/x86_64-pc-linux-gnu
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/backward
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include
+ /usr/local/include
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed
+ /usr/include
+End of search list.
+Compiler executable checksum: 4f062beaae229dc32234f13ba259a70e
+In file included from ./app/Package.hpp:8,
+                 from ./app/PersistenceManager.hpp:3,
+                 from ./app/PersistenceManager.cpp:1:
+./app/../commands/Command.hpp:182:19: error: field ‘in’ has incomplete type ‘std::ifstream’ {aka ‘std::basic_ifstream<char>’}
+  182 |     std::ifstream in;
+      |                   ^~
+In file included from /usr/include/c++/15.2.1/bits/localefwd.h:43,
+                 from /usr/include/c++/15.2.1/string:47,
+                 from ./app/PersistenceManager.hpp:2:
+/usr/include/c++/15.2.1/iosfwd:120:11: note: declaration of ‘std::ifstream’ {aka ‘class std::basic_ifstream<char>’}
+  120 |     class basic_ifstream;
+      |           ^~~~~~~~~~~~~~
+COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE ./builtin/EditorPackage.cpp -quiet -dumpdir ./dist/turnipOS- -dumpbase EditorPackage.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -Wunused-result -std=c++20 -version -fconcepts-diagnostics-depth=3 -o /tmp/ccd6gC57.s
 GNU C++20 (GCC) version 15.2.1 20251112 (x86_64-pc-linux-gnu)
 	compiled by GNU C version 15.2.1 20251112, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.27-GMP
 
@@ -172,10 +261,10 @@ ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../..
 End of search list.
 Compiler executable checksum: 4f062beaae229dc32234f13ba259a70e
 COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
- as -v --64 -o /tmp/ccfytS1F.o /tmp/ccjC0Bsz.s
+ as -v --64 -o /tmp/cc0SpcRM.o /tmp/ccd6gC57.s
 GNU assembler version 2.45.1 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.45.1
 COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE ./app/Package.cpp -quiet -dumpdir ./dist/turnipOS- -dumpbase Package.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -Wunused-result -std=c++20 -version -fconcepts-diagnostics-depth=3 -o /tmp/ccjC0Bsz.s
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE ./web/webtest.cpp -quiet -dumpdir ./dist/turnipOS- -dumpbase webtest.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -Wunused-result -std=c++20 -version -fconcepts-diagnostics-depth=3 -o /tmp/ccd6gC57.s
 GNU C++20 (GCC) version 15.2.1 20251112 (x86_64-pc-linux-gnu)
 	compiled by GNU C version 15.2.1 20251112, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.27-GMP
 
@@ -193,10 +282,10 @@ ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../..
 End of search list.
 Compiler executable checksum: 4f062beaae229dc32234f13ba259a70e
 COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
- as -v --64 -o /tmp/ccWdDWNV.o /tmp/ccjC0Bsz.s
+ as -v --64 -o /tmp/ccWcZf4m.o /tmp/ccd6gC57.s
 GNU assembler version 2.45.1 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.45.1
 COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE ./app/PersistenceManager.cpp -quiet -dumpdir ./dist/turnipOS- -dumpbase PersistenceManager.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -Wunused-result -std=c++20 -version -fconcepts-diagnostics-depth=3 -o /tmp/ccjC0Bsz.s
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE ./main.cpp -quiet -dumpdir ./dist/turnipOS- -dumpbase main.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -Wunused-result -std=c++20 -version -fconcepts-diagnostics-depth=3 -o /tmp/ccd6gC57.s
 GNU C++20 (GCC) version 15.2.1 20251112 (x86_64-pc-linux-gnu)
 	compiled by GNU C version 15.2.1 20251112, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.27-GMP
 
@@ -214,76 +303,8 @@ ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../..
 End of search list.
 Compiler executable checksum: 4f062beaae229dc32234f13ba259a70e
 COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
- as -v --64 -o /tmp/cclv1VWA.o /tmp/ccjC0Bsz.s
+ as -v --64 -o /tmp/cclx2pPF.o /tmp/ccd6gC57.s
 GNU assembler version 2.45.1 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.45.1
-COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE ./builtin/EditorPackage.cpp -quiet -dumpdir ./dist/turnipOS- -dumpbase EditorPackage.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -Wunused-result -std=c++20 -version -fconcepts-diagnostics-depth=3 -o /tmp/ccjC0Bsz.s
-GNU C++20 (GCC) version 15.2.1 20251112 (x86_64-pc-linux-gnu)
-	compiled by GNU C version 15.2.1 20251112, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.27-GMP
-
-GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
-ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../x86_64-pc-linux-gnu/include"
-#include "..." search starts here:
-#include <...> search starts here:
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/x86_64-pc-linux-gnu
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/backward
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include
- /usr/local/include
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed
- /usr/include
-End of search list.
-Compiler executable checksum: 4f062beaae229dc32234f13ba259a70e
-COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
- as -v --64 -o /tmp/ccOdNVTF.o /tmp/ccjC0Bsz.s
-GNU assembler version 2.45.1 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.45.1
-COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE ./web/webtest.cpp -quiet -dumpdir ./dist/turnipOS- -dumpbase webtest.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -Wunused-result -std=c++20 -version -fconcepts-diagnostics-depth=3 -o /tmp/ccjC0Bsz.s
-GNU C++20 (GCC) version 15.2.1 20251112 (x86_64-pc-linux-gnu)
-	compiled by GNU C version 15.2.1 20251112, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.27-GMP
-
-GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
-ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../x86_64-pc-linux-gnu/include"
-#include "..." search starts here:
-#include <...> search starts here:
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/x86_64-pc-linux-gnu
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/backward
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include
- /usr/local/include
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed
- /usr/include
-End of search list.
-Compiler executable checksum: 4f062beaae229dc32234f13ba259a70e
-COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
- as -v --64 -o /tmp/ccU4iIX4.o /tmp/ccjC0Bsz.s
-GNU assembler version 2.45.1 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.45.1
-COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE ./main.cpp -quiet -dumpdir ./dist/turnipOS- -dumpbase main.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -Wunused-result -std=c++20 -version -fconcepts-diagnostics-depth=3 -o /tmp/ccjC0Bsz.s
-GNU C++20 (GCC) version 15.2.1 20251112 (x86_64-pc-linux-gnu)
-	compiled by GNU C version 15.2.1 20251112, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.27-GMP
-
-GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
-ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../x86_64-pc-linux-gnu/include"
-#include "..." search starts here:
-#include <...> search starts here:
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/x86_64-pc-linux-gnu
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/backward
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include
- /usr/local/include
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed
- /usr/include
-End of search list.
-Compiler executable checksum: 4f062beaae229dc32234f13ba259a70e
-COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS-'
- as -v --64 -o /tmp/ccoV4212.o /tmp/ccjC0Bsz.s
-GNU assembler version 2.45.1 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.45.1
-COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/
-LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS.'
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccGHIs3m.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o ./dist/turnipOS /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../.. -L/lib -L/usr/lib /tmp/ccKbvjSY.o /tmp/cc2pLJgb.o /tmp/ccCacEkd.o /tmp/ccU1vCIc.o /tmp/ccpTn10q.o /tmp/ccQgWMID.o /tmp/ccCbS7qp.o /tmp/ccfytS1F.o /tmp/ccWdDWNV.o /tmp/cclv1VWA.o /tmp/ccOdNVTF.o /tmp/ccU4iIX4.o /tmp/ccoV4212.o -lcurl -lncurses -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o
-COLLECT_GCC_OPTIONS='-o' './dist/turnipOS' '-std=c++20' '-fconcepts-diagnostics-depth=3' '-Wunused-result' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' './dist/turnipOS.'
 
                        Ultimate Packer for eXecutables
                           Copyright (C) 1996 - 2025
@@ -291,6 +312,6 @@ UPX 5.0.2       Markus Oberhumer, Laszlo Molnar & John Reiser   Jul 20th 2025
 
         File size         Ratio      Format      Name
    --------------------   ------   -----------   -----------
-    624952 ->    134628   21.54%   linux/amd64   turnipOS
+upx: ./dist/turnipOS: AlreadyPackedException
 
-Packed 1 file.
+Packed 0 files.

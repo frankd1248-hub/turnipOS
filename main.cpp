@@ -13,18 +13,19 @@
 #include <functional>
 
 void initCommandMap(CommandMap& commands, PackageRegistry& reg, PersistenceManager& man) {
-    commands["exit"] = std::make_unique<ExitCommand>();
-    commands["login"] = std::make_unique<LoginCommand>();
+    commands["exit"]    = std::make_unique<ExitCommand>();
+    commands["login"]   = std::make_unique<LoginCommand>();
     commands["savepkg"] = std::make_unique<SavePackageCommand>(man, reg);
     commands["loadpkg"] = std::make_unique<LoadPackageCommand>(man, reg);
-    commands["pwd"] = std::make_unique<PWDCommand>();
-    commands["chdir"] = std::make_unique<ChdirCommand>();
-    commands["list"] = std::make_unique<ListCommand>();
-    commands["webget"] = std::make_unique<WebgetCommand>();
-    commands["mkdir"] = std::make_unique<MkdirCommand>();
-    commands["touch"] = std::make_unique<TouchCommand>();
-    commands["save"] = std::make_unique<SaveCommand>();
-    commands["load"] = std::make_unique<LoadCommand>();
+    commands["pwd"]     = std::make_unique<PWDCommand>();
+    commands["chdir"]   = std::make_unique<ChdirCommand>();
+    commands["list"]    = std::make_unique<ListCommand>();
+    commands["webget"]  = std::make_unique<WebgetCommand>();
+    commands["mkdir"]   = std::make_unique<MkdirCommand>();
+    commands["touch"]   = std::make_unique<TouchCommand>();
+    commands["save"]    = std::make_unique<SaveCommand>();
+    commands["load"]    = std::make_unique<LoadCommand>();
+    commands["cat"]     = std::make_unique<CatCommand>();
 }
 
 int main(int argc, char** argv) {

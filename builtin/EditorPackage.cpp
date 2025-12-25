@@ -47,9 +47,6 @@ void EditorCommand::execute(Context& ctx, const std::vector<std::string>& args) 
     }
     
     m_running = true;
-    initscr();
-    cbreak();
-    noecho();
 
     m_path = std::filesystem::path(args.at(0).substr(0, args.at(0).find_last_of('/')));
     if (!std::filesystem::exists(m_path)) {
@@ -76,6 +73,10 @@ void EditorCommand::execute(Context& ctx, const std::vector<std::string>& args) 
     // mode 1 = insert
     bool isTypingCommand = false;
     std::string command = "";
+    
+    initscr();
+    cbreak();
+    noecho();
     
     while (m_running) {
         display(ctx, mode, command);

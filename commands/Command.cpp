@@ -198,3 +198,16 @@ void LoadCommand::execute(Context& ctx, const std::vector<std::string>& args) {
     ctx.kernel.state() = ctx.kernel.state().deserialize(buf.str());
     ctx.io.writeLine("Successfully loaded.");
 }
+
+void CatCommand::execute(Context& ctx, const std::vector<std::string>& args) {
+    if (args.empty()) {
+        ctx.io.writeLine("Usage: cat <file>");
+        return;
+    }
+
+    in = std::ifstream(args.at(0));
+    std::stringstream buf;
+    buf << in.rdbuf();
+    in.close();
+    ctx.io.writeLine(buf.str());
+}
