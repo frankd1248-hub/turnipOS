@@ -34,6 +34,8 @@ public:
     std::vector<int> getCoords() const { return {x, y}; }
 
     void insertCharacter(char c);
+
+    void deleteCharacter();
     
     int countLines();
 

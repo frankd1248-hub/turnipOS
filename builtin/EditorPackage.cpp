@@ -106,12 +106,12 @@ void EditorCommand::execute(Context& ctx, const std::vector<std::string>& args) 
                 mode = 0;
                 continue;
             } else if (input == '\b' || input == 127 || input == KEY_BACKSPACE) {
-
-            } else if (std::isprint(input)) {
+                m_file.deleteCharacter();
+            } else {
                 m_file.insertCharacter(input);
             }
         }
-        sleepMillis(20);
+        sleepMillis(17);
     }
 
     endwin();
@@ -209,11 +209,21 @@ int EditorFile::countLines() {
 void EditorFile::insertCharacter(char c) {
     int len = 0;
     for (int i = 0; i < y; i++) {
-        len += lineLength(i);
+        len += lineLength(i) - 1;
     }
     len += x;
     if (len < contents.size())
         contents.insert(len, c + "");
+}
+
+void EditorFile::deleteCharacter() {
+    int len = 0;
+    for (int i = 0; i < y; i++) {
+        len += lineLength(i);
+    }
+    len += x;
+    if (len < contents.size())
+        contents.erase(len, 1);
 }
 
 int EditorFile::lineLength(int line) {
