@@ -19,13 +19,14 @@ void initCommandMap(CommandMap& commands, PackageRegistry& reg, PersistenceManag
     commands["loadpkg"] = std::make_unique<LoadPackageCommand>(man, reg);
     commands["pwd"]     = std::make_unique<PWDCommand>();
     commands["chdir"]   = std::make_unique<ChdirCommand>();
-    commands["list"]    = std::make_unique<ListCommand>();
+    commands["list"]    = std::make_unique<ListCommand>(); 
     commands["webget"]  = std::make_unique<WebgetCommand>();
     commands["mkdir"]   = std::make_unique<MkdirCommand>();
     commands["touch"]   = std::make_unique<TouchCommand>();
     commands["save"]    = std::make_unique<SaveCommand>();
     commands["load"]    = std::make_unique<LoadCommand>();
     commands["cat"]     = std::make_unique<CatCommand>();
+    
 }
 
 int main(int argc, char** argv) {
